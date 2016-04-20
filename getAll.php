@@ -1,4 +1,6 @@
 <?php
+
+	session_start();
 	$servername = "cis.gvsu.edu";
 	$username = "roe";
 	$password = "roe3202";
@@ -11,7 +13,16 @@
 	}
 	// echo "Connected successfully";
 	$sql = "SELECT * FROM books"; 
-	$result = $conn->query($sql);
-	echo $result;
+	// $result = $conn->query($sql);
+	$result = mysqli_query($conn, $sql) or die("Error in Selecting " . mysqli_error($connection));
+
+	$emparray = array();
+    while($row =mysqli_fetch_assoc($result))
+    {
+        $emparray[] = $row;
+    }
+
+	echo json_encode($emparray);
+	
 	$conn->close();
 ?>

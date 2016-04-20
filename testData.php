@@ -1,8 +1,8 @@
 <?php
 	session_start();
 
-	$name = $_POST["name"];	
-	$phone = $_POST["phone"];
+	$tEmail = "jessedroe@gmail.com";
+	$tISBN = "1233456788";
 	$age = filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT);
 	// echo $age;
 
